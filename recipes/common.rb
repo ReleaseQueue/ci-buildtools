@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: default
+# Recipe:: common
 #
 # Copyright 2013, Automate.Dev
 #
@@ -18,3 +18,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+include_recipe "rvm::system_install"
