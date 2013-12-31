@@ -1,4 +1,4 @@
 site :opscode
 
 metadata
-cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'rvm', git: 'https://github.com/fnichol/chef-rvm.git'
