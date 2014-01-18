@@ -11,5 +11,5 @@ version          '0.1.0'
 end
 
 depends 'apt', '= 2.2.0'
-depends 'rvm'
+depends 'rvm', '= 0.9.1'
 depends 'maven', '= 1.1.0'
