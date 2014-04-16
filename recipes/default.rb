@@ -20,3 +20,4 @@
 #
 
 include_recipe 'ad-buildtools::java'
+include_recipe 'ad-buildtools::ruby'

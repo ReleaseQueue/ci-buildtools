@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: java
+# Recipe:: ruby
 #
 # Copyright 2013, Automate.Dev
 #
@@ -21,4 +21,4 @@
 
 include_recipe 'ad-buildtools::common'
 
-include_recipe 'maven'
+include_recipe 'rvm::system'
