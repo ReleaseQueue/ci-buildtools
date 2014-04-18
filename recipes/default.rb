@@ -19,5 +19,6 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::java'
-include_recipe 'ad-buildtools::ruby'
+%w{java ruby nodejs}.each do |language|
+  include_recipe "ad-buildtools::#{language}"
+end
