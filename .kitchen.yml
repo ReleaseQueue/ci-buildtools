@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+    driver_config:
+        box: automatedev-server-ubuntu-12.04-amd64
+        box_url: http://assets.automate-dev.be/development/vagrant/virtualbox/automatedev-server-ubuntu-12.04-amd64.box
+  - name: ubuntu-13.04
+    driver_config:
+        box: automatedev-server-ubuntu-12.04-amd64
+        box_url: http://assets.automate-dev.be/development/vagrant/virtualbox/automatedev-server-ubuntu-13.04-amd64.box
+  - name: ubuntu-13.10
+    driver_config:
+        box: automatedev-server-ubuntu-12.04-amd64
+        box_url: http://assets.automate-dev.be/development/vagrant/virtualbox/automatedev-server-ubuntu-13.10-amd64.box
+
+suites:
+  - name: default
+    run_list:
+      - recipe[ad-buildtools]
+    attributes:
