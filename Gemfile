@@ -2,7 +2,14 @@ source 'https://rubygems.org'
 
 #gem 'chefspec',   '~> 3.2'
 gem 'berkshelf',  '~> 2.0.10'
-gem 'rake'
+
+group :development do
+  gem 'rake'
+end
+
+group :lint do
+  gem 'foodcritic', '~> 3.0'
+end
 
 group :integration do
   gem 'test-kitchen',    '~> 1.2'
