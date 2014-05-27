@@ -1,0 +1,11 @@
+box: ringods/buildtools@0.0.1
+build:
+  steps:
+    - script:
+        name: Run Rake Tests
+        code: |
+          bundle exec rake test
+#    - script:
+#        name: Run Test-Kitchen
+#        code: |
+#          kitchen test
