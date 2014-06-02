@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'thor', '~> 0.18.0'
 #gem 'chefspec',   '~> 3.2'
 gem 'berkshelf',  '~> 2.0.10'
 
