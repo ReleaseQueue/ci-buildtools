@@ -1,6 +1,14 @@
 box: ringods/buildtools@0.0.2
 build:
   steps:
+    - mktemp@1.0.0:
+        envvar: AWS_SSH_KEY_FILE
+    - create-file@0.9.8:
+        name: Write SSH Private Key File
+        filename: $AWS_SSH_KEY_FILE
+        content: $KITCHEN_SSH_PRIVATE
+        overwrite: true
+        hide-from-log: true
     - script:
         name: Install Ruby gems
         code: |
@@ -9,7 +17,7 @@ build:
         name: Run Rake Tests
         code: |
           bundle exec rake test
-#    - script:
-#        name: Run Test-Kitchen
-#        code: |
-#          kitchen test
+    - script:
+        name: Run Test-Kitchen
+        code: |
+          kitchen test
