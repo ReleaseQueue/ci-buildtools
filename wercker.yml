@@ -1,5 +1,5 @@
 box: ringods/buildtools@0.0.2
-no-response-timeout: 15
+no-response-timeout: 30
 command-timeout: 60
 build:
   steps:
