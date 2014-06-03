@@ -9,7 +9,7 @@ load _common
 }
 
 @test "RVM 1.9.3-p547 can use nokogiri with openssl" {
-  run_nokogiri_openssl_test "1.9.3-p547"
+  run_nokogiri_openssl_test "1.9.3-p484"
 }
 
 @test "RVM 2.0.0-p195 can use nokogiri with openssl" {
@@ -17,5 +17,5 @@ load _common
 }
 
 @test "RVM 2.0.0-p481 can use nokogiri with openssl" {
-  run_nokogiri_openssl_test "2.0.0-p481"
+  run_nokogiri_openssl_test "2.0.0-p353"
 }
