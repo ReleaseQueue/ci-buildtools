@@ -21,4 +21,12 @@
 
 include_recipe 'ad-buildtools::common'
 
-include_recipe 'rvm::system'
+include_recipe 'rvm::system_install'
+
+node['rvm']['rubies'].each do |ruby|
+  command = "rvm install #{ruby} --binary"
+  rvm_shell command do
+    code command
+    action :run
+  end
+end
