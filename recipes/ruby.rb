@@ -23,6 +23,13 @@ include_recipe 'ad-buildtools::common'
 
 include_recipe 'rvm::system_install'
 
+# add users to rvm group
+group 'rvm' do
+  members node['rvm']['group_users']
+
+  only_if { node['rvm']['group_users'].any? }
+end
+
 node['rvm']['rubies'].each do |ruby|
   command = "rvm install #{ruby} --binary"
   rvm_shell command do

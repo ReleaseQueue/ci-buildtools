@@ -25,3 +25,4 @@ suites:
   - name: default
     run_list:
       - recipe[ad-buildtools]
+    attributes: { "rvm": { "group_users": [ "ubuntu" ] } }
