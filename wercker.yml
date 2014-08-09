@@ -11,14 +11,14 @@ build:
         content: $KITCHEN_SSH_PRIVATE
         overwrite: true
         hide-from-log: true
-    - script:
-        name: Install Ruby gems
-        code: |
-          bundle install
-    - script:
-        name: Run Rake Tests
-        code: |
-          bundle exec rake test
+#    - script:
+#        name: Install Ruby gems
+#        code: |
+#          bundle install
+#    - script:
+#        name: Run Rake Tests
+#        code: |
+#          bundle exec rake test
     - script:
         name: Test-Kitchen - Converge
         code: |
