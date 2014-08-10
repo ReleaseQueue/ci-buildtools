@@ -20,3 +20,9 @@
 #
 
 include_recipe 'apt'
+
+node['ad-buildtools']['common']['packages'].each do |pkg|
+  package pkg do
+    action :install
+  end
+end
