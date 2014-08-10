@@ -12,6 +12,10 @@ build:
         overwrite: true
         hide-from-log: true
     - script:
+        name: Install nokogiri requirements
+        code: |
+          sudo apt-get install libxslt-dev libxml2-dev
+    - script:
         name: Install Ruby gems
         code: |
           bundle install
