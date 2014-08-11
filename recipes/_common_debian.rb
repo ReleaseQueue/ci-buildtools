@@ -2,9 +2,9 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: nodejs
+# Recipe:: _common_debian
 #
-# Copyright 2014, Automate.Dev
+# Copyright 2013, Automate.Dev
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,12 +19,5 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::cpp'
-
-if platform_family?('debian')
-  include_recipe 'ad-buildtools::_nodejs_debian'
-end
-
-if platform_family?('mac_os_x')
-  include_recipe 'ad-buildtools::_nodejs_mac_os_x'
-end
+# Update the package list
+include_recipe 'apt'

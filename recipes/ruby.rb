@@ -4,7 +4,7 @@
 # Cookbook Name:: ad-buildtools
 # Recipe:: ruby
 #
-# Copyright 2013, Automate.Dev
+# Copyright 2014, Automate.Dev
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,21 +19,12 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::common'
+include_recipe 'ad-buildtools::cpp'
 
-include_recipe 'rvm::system_install'
-
-# add users to rvm group
-group 'rvm' do
-  members node['rvm']['group_users']
-
-  only_if { node['rvm']['group_users'].any? }
+if platform_family?('debian')
+  include_recipe 'ad-buildtools::_ruby_debian'
 end
 
-node['rvm']['rubies'].each do |ruby|
-  command = "rvm install #{ruby} --binary"
-  rvm_shell command do
-    code command
-    action :run
-  end
+if platform_family?('mac_os_x')
+  include_recipe 'ad-buildtools::_ruby_mac_os_x'
 end

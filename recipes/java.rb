@@ -4,7 +4,7 @@
 # Cookbook Name:: ad-buildtools
 # Recipe:: java
 #
-# Copyright 2013, Automate.Dev
+# Copyright 2014, Automate.Dev
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,4 +21,10 @@
 
 include_recipe 'ad-buildtools::common'
 
-include_recipe 'maven'
+if platform_family?('debian')
+  include_recipe 'ad-buildtools::_java_debian'
+end
+
+if platform_family?('mac_os_x')
+  include_recipe 'ad-buildtools::_java_mac_os_x'
+end

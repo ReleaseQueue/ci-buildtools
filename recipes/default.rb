@@ -4,7 +4,7 @@
 # Cookbook Name:: ad-buildtools
 # Recipe:: default
 #
-# Copyright 2013, Automate.Dev
+# Copyright 2014, Automate.Dev
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +19,6 @@
 # limitations under the License.
 #
 
-%w{java ruby nodejs}.each do |language|
+%w{cpp java ruby nodejs}.each do |language|
   include_recipe "ad-buildtools::#{language}"
 end

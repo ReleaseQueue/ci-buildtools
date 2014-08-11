@@ -3,4 +3,9 @@
 # Cookbook Name:: ad-buildtools
 # Attributes:: common
 
-default['ad-buildtools']['common']['packages'] = ['libxml2-dev', 'libxslt1-dev']
+case node['platform_family']
+  when 'debian'
+    default['ad-buildtools']['common']['packages'] = ['libxml2-dev', 'libxslt1-dev']
+  when 'mac_os_x'
+    default['ad-buildtools']['common']['packages'] = ['libxml2', 'libxslt']
+end

@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: nodejs
+# Recipe:: cpp
 #
 # Copyright 2014, Automate.Dev
 #
@@ -19,12 +19,10 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::cpp'
+include_recipe 'ad-buildtools::common'
 
-if platform_family?('debian')
-  include_recipe 'ad-buildtools::_nodejs_debian'
-end
+include_recipe 'build-essential'
 
 if platform_family?('mac_os_x')
-  include_recipe 'ad-buildtools::_nodejs_mac_os_x'
+  include_recipe 'ad-buildtools::_cpp_mac_os_x'
 end

@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: nodejs
+# Recipe:: _ruby_debian
 #
 # Copyright 2014, Automate.Dev
 #
@@ -19,12 +19,20 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::cpp'
+include_recipe 'rvm::system_install'
 
-if platform_family?('debian')
-  include_recipe 'ad-buildtools::_nodejs_debian'
+# add users to rvm group
+group 'rvm' do
+  members node['rvm']['group_users']
+
+  only_if { node['rvm']['group_users'].any? }
 end
 
-if platform_family?('mac_os_x')
-  include_recipe 'ad-buildtools::_nodejs_mac_os_x'
+# Install binary rubies to shorten installation times.
+node['rvm']['rubies'].each do |ruby|
+  command = "rvm install #{ruby} --binary"
+  rvm_shell command do
+    code command
+    action :run
+  end
 end

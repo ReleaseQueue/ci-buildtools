@@ -2,9 +2,9 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: nodejs
+# Recipe:: _common_mac_os_x
 #
-# Copyright 2014, Automate.Dev
+# Copyright 2013, Automate.Dev
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,12 +19,24 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::cpp'
+# Install homebrew and let it become the default package provider on Mac OS X
+# http://brew.sh
+include_recipe 'homebrew'
 
-if platform_family?('debian')
-  include_recipe 'ad-buildtools::_nodejs_debian'
-end
+# Add links to additional brew scripts
+# http://braumeister.org/
+homebrew_tap 'homebrew/dupes'
+homebrew_tap 'homebrew/versions'
 
-if platform_family?('mac_os_x')
-  include_recipe 'ad-buildtools::_nodejs_mac_os_x'
+# Add links to casks
+# http://caskroom.io
+include_recipe 'sprout-homebrew::cask'
+homebrew_tap 'caskroom/versions'
+
+# Set /usr/local/bin before /usr/bin
+cookbook_file '/etc/paths' do
+  source 'paths'
+  mode 0644
+  owner 'root'
+  group 'wheel'
 end
