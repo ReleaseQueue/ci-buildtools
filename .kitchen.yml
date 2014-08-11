@@ -21,14 +21,6 @@ platforms:
       image_id: ami-d1f308a6
       username: ubuntu
     attributes: { "rvm": { "group_users": [ "ubuntu" ] } }
-  - name: osx-10.9
-    driver:
-      name: vagrant
-      box: osx109-desktop-nocm
-      provider: vmware_fusion
-      customize:
-        numvcpus: 2
-    attributes: { "rvm": { "group_users": [ "vagrant" ] } }
 
 suites:
   - name: default
