@@ -1,16 +1,6 @@
 ---
 driver:
-  name: ec2
-  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY'] %>
-  aws_secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
-  aws_ssh_key_id: <%= ENV['AWS_SSH_KEY_ID'] %>
-  ssh_key: <%= ENV['AWS_SSH_KEY_FILE'] %>
-  # Security groups: "default" and "AWS-OpsWorks-Blank-Server" (SSH enabled)
-  security_group_ids: ["sg-159c1e62", "sg-d5532aa2"]
-  region: eu-west-1
-  availability_zone: eu-west-1a
   require_chef_omnibus: true
-  flavor_id: t1.micro
 
 provisioner:
   name: chef_solo
@@ -18,11 +8,29 @@ provisioner:
 platforms:
   - name: ubuntu-12.04
     driver:
+      name: ec2
+      aws_access_key_id: <%= ENV['AWS_ACCESS_KEY'] %>
+      aws_secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
+      aws_ssh_key_id: <%= ENV['AWS_SSH_KEY_ID'] %>
+      ssh_key: <%= ENV['AWS_SSH_KEY_FILE'] %>
+      # Security groups: "default" and "AWS-OpsWorks-Blank-Server" (SSH enabled)
+      security_group_ids: ["sg-159c1e62", "sg-d5532aa2"]
+      region: eu-west-1
+      availability_zone: eu-west-1a
+      flavor_id: t1.micro
       image_id: ami-d1f308a6
       username: ubuntu
+    attributes: { "rvm": { "group_users": [ "ubuntu" ] } }
+  - name: osx-10.9
+    driver:
+      name: vagrant
+      box: osx109-desktop-nocm
+      provider: vmware_fusion
+      customize:
+        numvcpus: 2
+    attributes: { "rvm": { "group_users": [ "vagrant" ] } }
 
 suites:
   - name: default
     run_list:
       - recipe[ad-buildtools]
-    attributes: { "rvm": { "group_users": [ "ubuntu" ] } }
