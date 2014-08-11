@@ -5,5 +5,7 @@ group :development do
 end
 
 group :lint do
-  gem 'foodcritic', '~> 3.0'
+  # Lock nokogiri to 1.6.2. Version 1.6.3 breaks again with packaged libxml2 and libxslt libraries.
+  gem 'nokogiri', '= 1.6.2'
+  gem 'foodcritic', '~> 4.0'
 end
