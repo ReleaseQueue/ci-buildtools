@@ -21,10 +21,12 @@
 
 include_recipe 'ad-buildtools::common'
 
-if platform_family?('debian')
-  include_recipe 'ad-buildtools::_java_debian'
-end
-
-if platform_family?('mac_os_x')
-  include_recipe 'ad-buildtools::_java_mac_os_x'
+begin
+  include_recipe "ad-buildtools::_java_#{node['platform_family']}"
+rescue Chef::Exceptions::RecipeNotFound
+  Chef::Log.warn <<-EOH
+A build-essential recipe does not exist for '#{node['platform_family']}'. This
+means the ad-buildtools cookbook does not have support for the
+#{node['platform_family']} family.
+  EOH
 end
