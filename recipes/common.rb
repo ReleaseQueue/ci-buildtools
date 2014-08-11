@@ -26,10 +26,3 @@ end
 if platform_family?('mac_os_x')
   include_recipe 'ad-buildtools::_common_mac_os_x'
 end
-
-# Install common packages
-# node['ad-buildtools']['common']['packages'].each do |pkg|
-#   package pkg do
-#     action :install
-#   end
-# end
