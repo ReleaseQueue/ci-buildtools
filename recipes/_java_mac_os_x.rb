@@ -19,4 +19,4 @@
 # limitations under the License.
 #
 
-sprout_homebrew_cask 'java7'
+homebrew_cask 'java7'
