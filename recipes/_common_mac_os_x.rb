@@ -31,10 +31,14 @@ homebrew_tap 'homebrew/versions'
 # Add links to casks
 # http://caskroom.io
 include_recipe 'homebrew::cask'
-
-# Using my own fork as long as my pull request for Java7 is not merged in.
+# Removing my own fork because my pull request for Java7 is merged in.
 # https://github.com/caskroom/homebrew-versions/pull/367
-homebrew_tap 'AutomateDev/versions'
+homebrew_tap 'AutomateDev/versions' do
+  action :untap
+  ignore_failure true
+end
+# Adding the official repo
+homebrew_tap 'caskroom/versions'
 
 # Set /usr/local/bin before /usr/bin
 cookbook_file '/etc/paths' do
