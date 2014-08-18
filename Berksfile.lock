@@ -6,7 +6,7 @@ DEPENDENCIES
 GRAPH
   7-zip (1.0.2)
     windows (>= 1.2.2)
-  ad-buildtools (0.3.2)
+  ad-buildtools (0.3.3)
     apt (= 2.2.0)
     build-essential (= 2.0.4)
     homebrew (= 1.9.0)
