@@ -30,7 +30,7 @@ homebrew_tap 'homebrew/versions'
 
 # Add links to casks
 # http://caskroom.io
-include_recipe 'sprout-homebrew::cask'
+include_recipe 'homebrew::cask'
 homebrew_tap 'caskroom/versions'
 
 # Set /usr/local/bin before /usr/bin
