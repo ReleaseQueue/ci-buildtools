@@ -20,7 +20,7 @@
 #
 
 # Add additional build-essential packages via Homebrew
-%w{autoconf bison flex automake libtool pkg-config gcc46 libyaml readline libksba openssl}.each do |pkg|
+%w(autoconf bison flex automake libtool pkg-config gcc46 libyaml readline libksba openssl).each do |pkg|
   package pkg do
     action :install
   end

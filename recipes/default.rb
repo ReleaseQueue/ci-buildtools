@@ -19,6 +19,6 @@
 # limitations under the License.
 #
 
-%w{cpp java ruby nodejs}.each do |language|
+%w(cpp java ruby nodejs).each do |language|
   include_recipe "ad-buildtools::#{language}"
 end

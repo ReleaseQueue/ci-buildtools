@@ -1,3 +1,1 @@
-if platform_family?('debian')
-  override['nodejs']['install_method'] = 'package'
-end
+override['nodejs']['install_method'] = 'package' if platform_family?('debian')

@@ -1,6 +1,6 @@
 Encoding:
   Enabled: false
 LineLength:
-   Max: 100
+   Max: 120
 SingleSpaceBeforeFirstArg:
   Enabled: false
