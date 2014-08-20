@@ -1,0 +1,6 @@
+Encoding:
+  Enabled: false
+LineLength:
+   Max: 100
+SingleSpaceBeforeFirstArg:
+  Enabled: false
