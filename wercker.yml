@@ -16,9 +16,9 @@ build:
         code: |
           bundle install
     - script:
-        name: Run Rake Tests
+        name: Run Rake
         code: |
-          bundle exec rake test
+          bundle exec rake
     - script:
         name: Test-Kitchen - Converge
         code: |
