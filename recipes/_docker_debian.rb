@@ -20,3 +20,15 @@
 #
 
 include_recipe 'docker'
+
+# Mimic the setup from the Wercker box
+# https://github.com/wercker/wercker-labs-docker/blob/master/docker.json
+remote_file '/etc/init/docker.conf' do
+  source 'https://raw.github.com/dotcloud/docker/master/contrib/init/upstart/docker.conf'
+  action :create
+  notifies :restart, 'service[docker]', :immediately
+end
+
+service 'docker' do
+  action :nothing
+end

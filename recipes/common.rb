@@ -19,6 +19,12 @@
 # limitations under the License.
 #
 
+for developer in node['ad-buildtools']['developers'] do
+  user developer do
+    action :create
+  end
+end
+
 begin
   include_recipe "ad-buildtools::_common_#{node['platform_family']}"
 rescue Chef::Exceptions::RecipeNotFound
