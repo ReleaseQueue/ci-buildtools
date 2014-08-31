@@ -22,17 +22,20 @@
 include_recipe 'ad-buildtools::cpp'
 
 # Install the knife container plugin
-chef_gem 'knife-container' do
+gem_package 'knife-container' do
+  gem_binary "#{RbConfig::CONFIG['bindir']}/gem"
   action :install
 end
 
 # Install the Test-Kitchen EC2 provider
-chef_gem 'kitchen-ec2' do
+gem_package 'kitchen-ec2' do
+  gem_binary "#{RbConfig::CONFIG['bindir']}/gem"
   action :install
 end
 
 # Install the Test-Kitchen Docker provider
-chef_gem 'kitchen-docker' do
+gem_package 'kitchen-docker' do
+  gem_binary "#{RbConfig::CONFIG['bindir']}/gem"
   action :install
 end
 
@@ -44,13 +47,13 @@ kitchen_chef_container_gem = "#{kitchen_chef_container}-#{kitchen_chef_container
 remote_file "#{Chef::Config[:file_cache_path]}/#{kitchen_chef_container_gem}" do
   source "http://assets.automate-dev.be/development/ruby/gems/#{kitchen_chef_container_gem}"
   action :create
-  notifies :install, "chef_gem[#{kitchen_chef_container}]", :immediately
 end
 
 # Install the Test-Kitchen Chef-Container provider
-chef_gem kitchen_chef_container do
+gem_package kitchen_chef_container do
   source "#{Chef::Config[:file_cache_path]}/#{kitchen_chef_container_gem}"
-  action :nothing
+  gem_binary "#{RbConfig::CONFIG['bindir']}/gem"
+  action :install
   # Repeat the version here due to https://github.com/opscode/chef/pull/916
   version kitchen_chef_container_version
 end
