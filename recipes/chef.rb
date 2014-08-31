@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::common'
+include_recipe 'ad-buildtools::cpp'
 
 # Install the knife container plugin
 chef_gem 'knife-container' do
