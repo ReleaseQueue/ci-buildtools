@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@automate-dev.com>
 #
 # Cookbook Name:: ad-buildtools
-# Recipe:: default
+# Recipe:: _chef_debian
 #
 # Copyright 2014, Automate.Dev
 #
@@ -18,7 +18,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-%w(chef cpp docker java ruby nodejs).each do |language|
-  include_recipe "ad-buildtools::#{language}"
-end

@@ -20,7 +20,7 @@ platforms:
       flavor_id: t1.micro
       image_id: ami-d1f308a6
       username: ubuntu
-    attributes: { "rvm": { "group_users": [ "ubuntu" ] } }
+    attributes: { "ad-buildtools": { "developers": [ "ubuntu" ] } }
 
 suites:
   - name: default
