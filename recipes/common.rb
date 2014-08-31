@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-for developer in node['ad-buildtools']['developers'] do
+node['ad-buildtools']['developers'].each do |developer|
   user developer do
     action :create
   end

@@ -7,7 +7,8 @@ describe 'Chef Development & Test tools' do
   end
 
   it 'should have knife container docker cli' do
-    expect(command 'knife container docker -h').to return_stdout(/.*\nknife container docker build .*\nknife container docker init .*/)
+    expect(command 'knife container docker -h').to
+    return_stdout(/.*\nknife container docker build .*\nknife container docker init .*/)
   end
 
 end

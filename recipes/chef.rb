@@ -41,7 +41,7 @@ kitchen_chef_container_version = '0.0.1'
 kitchen_chef_container_gem = "#{kitchen_chef_container}-#{kitchen_chef_container_version}.gem"
 
 # Download the Test-Kitchen Chef-Container provider
-remote_file "/tmp/#{kitchen_chef_container_gem}" do
+remote_file "#{Chef::Config[:file_cache_path]}/#{kitchen_chef_container_gem}" do
   source "http://assets.automate-dev.be/development/ruby/gems/#{kitchen_chef_container_gem}"
   action :create
   notifies :install, "chef_gem[#{kitchen_chef_container}]", :immediately
@@ -49,7 +49,7 @@ end
 
 # Install the Test-Kitchen Chef-Container provider
 chef_gem kitchen_chef_container do
-  source "/tmp/#{kitchen_chef_container_gem}"
+  source "#{Chef::Config[:file_cache_path]}/#{kitchen_chef_container_gem}"
   action :nothing
   # Repeat the version here due to https://github.com/opscode/chef/pull/916
   version kitchen_chef_container_version
