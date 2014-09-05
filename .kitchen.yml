@@ -6,7 +6,7 @@ provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-12.04
+  - name: ubuntu-14.04
     driver:
       name: ec2
       aws_access_key_id: <%= ENV['AWS_ACCESS_KEY'] %>
@@ -18,7 +18,7 @@ platforms:
       region: eu-west-1
       availability_zone: eu-west-1a
       flavor_id: t1.micro
-      image_id: ami-d1f308a6
+      image_id: ami-b8c41ccf
       username: ubuntu
     attributes: { "ad-buildtools": { "developers": [ "ubuntu" ] } }
 
