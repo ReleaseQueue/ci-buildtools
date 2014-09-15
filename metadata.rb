@@ -6,7 +6,7 @@ description      'Installs/Configures Automate.Dev Development Build Tools'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.3.4'
 
-supports 'ubuntu', '= 12.04'
+supports 'ubuntu', '= 14.04'
 supports 'mac_os_x', '= 10.9'
 
 depends 'apt', '= 2.2.0'
