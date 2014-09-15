@@ -23,10 +23,10 @@ build:
         name: Test-Kitchen - Converge
         code: |
           kitchen converge .*ubuntu.* --concurrency
-    - script:
-        name: Test-Kitchen - Verify
-        code: |
-          kitchen verify .*ubuntu.* --concurrency
+#    - script:
+#        name: Test-Kitchen - Verify
+#        code: |
+#          kitchen verify .*ubuntu.* --concurrency
   after-steps:
     - script:
         name: Test-Kitchen - Destroy
