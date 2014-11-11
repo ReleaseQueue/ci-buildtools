@@ -21,18 +21,4 @@
 
 include_recipe 'rvm::system_install'
 
-# add users to rvm group
-group 'rvm' do
-  members node['rvm']['group_users']
-
-  only_if { node['rvm']['group_users'].any? }
-end
-
-# Install binary rubies to shorten installation times.
-node['rvm']['rubies'].each do |ruby|
-  command = "rvm install #{ruby} --binary"
-  rvm_shell command do
-    code command
-    action :run
-  end
-end
+include_recipe 'rvm::system'
