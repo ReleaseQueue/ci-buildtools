@@ -1,4 +1,4 @@
-box: ringods/buildtools@0.0.6
+box: ringods/buildtools@0.0.9
 no-response-timeout: 30
 command-timeout: 60
 build:
