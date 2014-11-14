@@ -19,6 +19,6 @@
 # limitations under the License.
 #
 
-%w(chef cpp docker java ruby nodejs).each do |language|
+%w(chef cpp java ruby nodejs).each do |language| # Disabled: docker
   include_recipe "ad-buildtools::#{language}"
 end
