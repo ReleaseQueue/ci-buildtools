@@ -5,5 +5,6 @@ override['rvm']['rubies'] = %w(ruby-2.1.3 ruby-2.1.5)
 override['rvm']['group_users'] = node['ad-buildtools']['developers']
 override['rvm']['global_gems'] = [
   { 'name' => 'pkgr' },
-  { 'name' => 'deb-s3' }
+  { 'name' => 'deb-s3' },
+  { 'name' => 'fpm' }
 ]
