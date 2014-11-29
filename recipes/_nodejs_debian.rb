@@ -20,3 +20,12 @@
 #
 
 include_recipe 'nodejs'
+
+include_recipe 'apt'
+
+# Fix/workaround for the startup failure of the PhantomJS headless browser
+# https://github.com/karma-runner/karma-phantomjs-launcher/issues/31
+package 'libfontconfig' do
+  action :install
+end
+
