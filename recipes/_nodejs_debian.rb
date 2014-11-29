@@ -28,4 +28,3 @@ include_recipe 'apt'
 package 'libfontconfig' do
   action :install
 end
-
