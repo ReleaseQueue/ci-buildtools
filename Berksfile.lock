@@ -6,7 +6,7 @@ DEPENDENCIES
 GRAPH
   7-zip (1.0.2)
     windows (>= 1.2.2)
-  ad-buildtools (0.3.6)
+  ad-buildtools (0.3.8)
     apt (= 2.2.0)
     build-essential (= 2.0.4)
     docker (= 0.35.2)
