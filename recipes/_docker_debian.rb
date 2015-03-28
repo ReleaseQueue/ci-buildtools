@@ -1,7 +1,7 @@
 #
 # Author:: Ringo De Smet <ringo@releasequeue.com>
 #
-# Cookbook Name:: ad-buildtools
+# Cookbook Name:: ci-buildtools
 # Recipe:: _docker_debian
 #
 # Copyright 2015, ReleaseQueue
