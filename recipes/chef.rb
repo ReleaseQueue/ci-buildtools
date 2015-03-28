@@ -59,7 +59,7 @@ gem_package kitchen_chef_container do
 end
 
 begin
-  include_recipe "ad-buildtools::_chef_#{node['platform_family']}"
+  include_recipe "ci-buildtools::_chef_#{node['platform_family']}"
 rescue Chef::Exceptions::RecipeNotFound
   Chef::Log.warn <<-EOH
 A chef recipe does not exist for '#{node['platform_family']}'. This
