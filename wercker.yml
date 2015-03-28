@@ -32,7 +32,7 @@ build:
         name: Test-Kitchen - Destroy
         code: |
           kitchen destroy .*ubuntu.* --concurrency
-    - wercker/hipchat-notify@1.0.5:
-        token: $HIPCHAT_TOKEN
-        room-id: 821750
-        from-name: Wercker CI
+#    - wercker/hipchat-notify@1.0.5:
+#        token: $HIPCHAT_TOKEN
+#        room-id: 821750
+#        from-name: Wercker CI

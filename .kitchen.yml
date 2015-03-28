@@ -20,9 +20,9 @@ platforms:
       flavor_id: t1.micro
       image_id: ami-b8c41ccf
       username: ubuntu
-    attributes: { "ad-buildtools": { "developers": [ "ubuntu" ] } }
+    attributes: { "ci-buildtools": { "developers": [ "ubuntu" ] } }
 
 suites:
   - name: default
     run_list:
-      - recipe[ad-buildtools]
+      - recipe[ci-buildtools]
