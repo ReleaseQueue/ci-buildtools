@@ -1,10 +1,10 @@
 #
-# Author:: Ringo De Smet <ringo@automate-dev.com>
+# Author:: Ringo De Smet <ringo@releasequeue.com>
 #
-# Cookbook Name:: ad-buildtools
+# Cookbook Name:: ci-buildtools
 # Recipe:: chef
 #
-# Copyright 2014, Automate.Dev
+# Copyright 2015, ReleaseQueue
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-include_recipe 'ad-buildtools::cpp'
+include_recipe 'ci-buildtools::cpp'
 
 # Install the knife container plugin
 gem_package 'knife-container' do

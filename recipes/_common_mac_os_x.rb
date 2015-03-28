@@ -1,10 +1,10 @@
 #
-# Author:: Ringo De Smet <ringo@automate-dev.com>
+# Author:: Ringo De Smet <ringo@releasequeue.com>
 #
-# Cookbook Name:: ad-buildtools
+# Cookbook Name:: ci-buildtools
 # Recipe:: _common_mac_os_x
 #
-# Copyright 2013, Automate.Dev
+# Copyright 2015, ReleaseQueue
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,12 +31,6 @@ homebrew_tap 'homebrew/versions'
 # Add links to casks
 # http://caskroom.io
 include_recipe 'homebrew::cask'
-# Removing my own fork because my pull request for Java7 is merged in.
-# https://github.com/caskroom/homebrew-versions/pull/367
-homebrew_tap 'AutomateDev/versions' do
-  action :untap
-  ignore_failure true
-end
 # Adding the official repo
 homebrew_tap 'caskroom/versions'
 

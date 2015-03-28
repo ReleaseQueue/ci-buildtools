@@ -1,8 +1,8 @@
-# ad-buildtools cookbook
+# ci-buildtools cookbook
 
 ## Build status
 
-[![wercker status](https://app.wercker.com/status/3a6cb347154586b91ac99d8cdc1ee4eb/m "wercker status")](https://app.wercker.com/project/bykey/3a6cb347154586b91ac99d8cdc1ee4eb)
+[![wercker status](https://app.wercker.com/status/f6c7d220cb1f837f998cd2599e26f483/m "wercker status")](https://app.wercker.com/project/bykey/f6c7d220cb1f837f998cd2599e26f483)
 
 # Requirements
 
@@ -14,4 +14,4 @@
 
 # Author
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Ringo De Smet (ringo@releasequeue.com)

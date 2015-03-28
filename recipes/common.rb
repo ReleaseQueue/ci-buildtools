@@ -1,10 +1,10 @@
 #
-# Author:: Ringo De Smet <ringo@automate-dev.com>
+# Author:: Ringo De Smet <ringo@releasequeue.com>
 #
-# Cookbook Name:: ad-buildtools
+# Cookbook Name:: ci-buildtools
 # Recipe:: common
 #
-# Copyright 2014, Automate.Dev
+# Copyright 2015, ReleaseQueue
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,14 +19,14 @@
 # limitations under the License.
 #
 
-node['ad-buildtools']['developers'].each do |developer|
+node['ci-buildtools']['developers'].each do |developer|
   user developer do
     action :create
   end
 end
 
 begin
-  include_recipe "ad-buildtools::_common_#{node['platform_family']}"
+  include_recipe "ci-buildtools::_common_#{node['platform_family']}"
 rescue Chef::Exceptions::RecipeNotFound
   Chef::Log.warn <<-EOH
 A build-essential recipe does not exist for '#{node['platform_family']}'. This

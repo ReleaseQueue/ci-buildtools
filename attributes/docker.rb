@@ -1,1 +1,1 @@
-override['docker']['group_members'] = node['ad-buildtools']['developers']
+override['docker']['group_members'] = node['ci-buildtools']['developers']
