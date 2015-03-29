@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@releasequeue.com>
 #
 # Cookbook Name:: ci-buildtools
-# Recipe:: default
+# Recipe:: _elixir_debian
 #
 # Copyright 2015, ReleaseQueue
 #
@@ -19,6 +19,4 @@
 # limitations under the License.
 #
 
-%w(chef cpp java ruby nodejs elixir).each do |language| # Disabled: docker
-  include_recipe "ci-buildtools::#{language}"
-end
+include_recipe 'elixir'

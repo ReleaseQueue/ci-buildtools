@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@releasequeue.com>
 #
 # Cookbook Name:: ci-buildtools
-# Recipe:: default
+# Recipe:: elixir
 #
 # Copyright 2015, ReleaseQueue
 #
@@ -19,6 +19,12 @@
 # limitations under the License.
 #
 
-%w(chef cpp java ruby nodejs elixir).each do |language| # Disabled: docker
-  include_recipe "ci-buildtools::#{language}"
+begin
+  include_recipe "ci-buildtools::_elixir_#{node['platform_family']}"
+rescue Chef::Exceptions::RecipeNotFound
+  Chef::Log.warn <<-EOH
+An elixir recipe does not exist for '#{node['platform_family']}'. This
+means the ci-buildtools cookbook does not have support for the
+#{node['platform_family']} family.
+  EOH
 end
