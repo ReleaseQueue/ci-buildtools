@@ -11,7 +11,7 @@ supports 'mac_os_x', '= 10.9'
 
 depends 'apt', '~> 2.7.0'
 depends 'build-essential', '~> 2.2.2'
-depends 'rvm', '~> 0.9.2'
+depends 'rvm', '~> 0.10.0'
 depends 'java', '~> 1.31.0'
 depends 'maven', '~> 1.3.0'
 depends 'nodejs', '= 1.3.0'
