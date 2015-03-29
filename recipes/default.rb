@@ -19,6 +19,6 @@
 # limitations under the License.
 #
 
-%w(chef cpp java ruby nodejs).each do |language| # Disabled: elixir docker
+%w(chef cpp java ruby nodejs elixir).each do |language| # Disabled: docker
   include_recipe "ci-buildtools::#{language}"
 end

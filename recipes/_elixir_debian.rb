@@ -19,4 +19,4 @@
 # limitations under the License.
 #
 
-# include_recipe 'elixir'
+include_recipe 'elixir'
