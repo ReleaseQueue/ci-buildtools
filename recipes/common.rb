@@ -21,21 +21,19 @@
 
 # Set home_basedir based on platform_family
 case node['platform_family']
-  when 'mac_os_x'
-    home_basedir = '/Users'
-  when 'debian', 'rhel', 'fedora', 'arch', 'suse', 'freebsd'
-    home_basedir = '/home'
+when 'mac_os_x'
+  home_basedir = '/Users'
+when 'debian', 'rhel', 'fedora', 'arch', 'suse', 'freebsd'
+  home_basedir = '/home'
 end
 
 node['ci-buildtools']['developers'].each do |developer|
   user developer do
-    supports :manage_home => true
+    supports :manage_home => true # rubocop:disable Style/HashSyntax, UseHashRocketsWithSymbolValues/true
     home "#{home_basedir}/#{developer}"
-    shell "/bin/bash"
+    shell '/bin/bash'
     action :create
   end
-
-
 end
 
 begin
