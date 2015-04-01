@@ -27,9 +27,14 @@ when 'debian', 'rhel', 'fedora', 'arch', 'suse', 'freebsd'
   home_basedir = '/home'
 end
 
+group node['ci-buildtools']['group'] do
+  action :create
+end
+
 node['ci-buildtools']['developers'].each do |developer|
   user developer do
     supports :manage_home => true # rubocop:disable Style/HashSyntax, UseHashRocketsWithSymbolValues/true
+    group node['ci-buildtools']['group']
     home "#{home_basedir}/#{developer}"
     shell '/bin/bash'
     action :create

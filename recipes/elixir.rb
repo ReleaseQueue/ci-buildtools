@@ -28,3 +28,14 @@ means the ci-buildtools cookbook does not have support for the
 #{node['platform_family']} family.
   EOH
 end
+
+node['ci-buildtools']['developers'].each do |developer|
+  bash 'rebar_hex install' do
+    code <<-END
+      mix local.rebar --force
+      mix local.hex --force
+    END
+    user developer
+    environment ({'HOME' => "/home/#{developer}"})
+  end
+end
