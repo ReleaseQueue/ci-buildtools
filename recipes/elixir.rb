@@ -36,6 +36,6 @@ node['ci-buildtools']['developers'].each do |developer|
       mix local.hex --force
     END
     user developer
-    environment ({'HOME' => "/home/#{developer}"})
+    environment 'HOME' => "/home/#{developer}"
   end
 end

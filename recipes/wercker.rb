@@ -1,4 +1,4 @@
-directory "/pipeline" do
+directory '/pipeline' do
   owner 'root'
   group node['ci-buildtools']['group']
   mode 01775
