@@ -29,13 +29,26 @@ means the ci-buildtools cookbook does not have support for the
   EOH
 end
 
-node['ci-buildtools']['developers'].each do |developer|
-  bash 'rebar_hex install' do
-    code <<-END
-      mix local.rebar --force
-      mix local.hex --force
-    END
-    user developer
-    environment 'HOME' => "/home/#{developer}"
-  end
+# Rebar is an Erlang BEAM application so it runs on any platform that has Erlang installed.
+remote_file '/usr/local/rebar' do
+  source 'https://raw.github.com/wiki/rebar/rebar/rebar'
+  action :create
+  mode 0755
+end
+
+# Mix tasks can be installed globally when the MIX_ARCHIVES env variable is set
+directory '/usr/local/mix/archives' do
+  action :create
+  recursive true
+  mode 0755
+end
+
+remote_file '/usr/local/mix/archives/hex.ez' do
+  source 'https://hex.pm/installs/hex.ez?elixir=1.0.2'
+  mode 0644
+end
+
+cookbook_file '/etc/profile.d/mix_archives.sh' do
+  source 'mix_archives.sh'
+  mode 0644
 end
