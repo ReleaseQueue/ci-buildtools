@@ -21,10 +21,9 @@ platforms:
       image_id: ami-b8c41ccf
       username: ubuntu
       require_chef_omnibus: 12.1.2-1
-    attributes: { "ci-buildtools": { "developers": [ "ubuntu", "wercker" ] } }
+    attributes: { "ci-buildtools": { "developers": [ "wercker" ] } }
 
 suites:
   - name: default
     run_list:
       - recipe[ci-buildtools]
-      - recipe[ci-buildtools::wercker]
