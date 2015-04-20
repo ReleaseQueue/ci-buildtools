@@ -30,7 +30,7 @@ means the ci-buildtools cookbook does not have support for the
 end
 
 # Rebar is an Erlang BEAM application so it runs on any platform that has Erlang installed.
-remote_file '/usr/local/rebar' do
+remote_file '/usr/local/bin/rebar' do
   source 'https://raw.github.com/wiki/rebar/rebar/rebar'
   action :create
   mode 0755
