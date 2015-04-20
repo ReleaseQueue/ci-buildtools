@@ -52,3 +52,8 @@ cookbook_file '/etc/profile.d/mix_archives.sh' do
   source 'mix_archives.sh'
   mode 0644
 end
+
+# Dependency for ecto, the ORM library of Phoenix framework.
+package 'postgresql-client' do
+  action :install
+end
