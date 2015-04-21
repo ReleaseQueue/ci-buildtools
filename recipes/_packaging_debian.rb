@@ -2,7 +2,7 @@
 # Author:: Ringo De Smet <ringo@releasequeue.com>
 #
 # Cookbook Name:: ci-buildtools
-# Recipe:: default
+# Recipe:: _packaging_debian
 #
 # Copyright 2015, ReleaseQueue
 #
@@ -19,6 +19,23 @@
 # limitations under the License.
 #
 
-%w(chef cpp java ruby nodejs elixir packaging).each do |language| # Disabled: docker
-  include_recipe "ci-buildtools::#{language}"
+include_recipe 'apt'
+
+package 'apt-transport-https' do
+  action :install
 end
+
+apt_repository 'swaddle' do
+  uri 'https://raphaelcohn.github.io/swaddle/download/apt'
+  components ['multiverse']
+  distribution 'swaddle'
+  key 'BFEEA2E71B9C4AF0'
+  keyserver 'keys.niif.hu'
+  action :add
+  deb_src false
+end
+
+package 'swaddle' do
+  action :install
+end
+
