@@ -38,4 +38,3 @@ end
 package 'swaddle' do
   action :install
 end
-
