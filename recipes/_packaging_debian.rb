@@ -25,6 +25,13 @@ package 'apt-transport-https' do
   action :install
 end
 
+apt_repository 'multiverse' do
+  uri 'http://archive.ubuntu.com/ubuntu/'
+  components ['multiverse']
+  distribution node['lsb']['codename']
+  action :add
+end
+
 apt_repository 'swaddle' do
   uri 'https://raphaelcohn.github.io/swaddle/download/apt'
   components ['multiverse']
