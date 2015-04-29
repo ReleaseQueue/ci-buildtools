@@ -33,7 +33,7 @@ apt_repository 'multiverse' do
 end
 
 apt_repository 'swaddle' do
-  uri 'https://raphaelcohn.github.io/swaddle/download/apt'
+  uri 'http://raphaelcohn.github.io/swaddle/download/apt'
   components ['multiverse']
   distribution 'swaddle'
   key 'BFEEA2E71B9C4AF0'
